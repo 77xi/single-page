@@ -1,0 +1,1 @@
+exports.vendorDependencies = ['jquery']
