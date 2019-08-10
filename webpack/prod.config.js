@@ -20,6 +20,7 @@ const config = {
     ...baseConfig.entry,
     vendor: vendorDependencies
   },
+  devtool: 'source-map',
   module: {
     rules: [
       {
@@ -57,7 +58,10 @@ const config = {
     new BundleAnalyzerPlugin()
   ],
   optimization: {
-    minimizer: [new UglifyJsPlugin(), new OptimizeCSSAssetsPlugin()],
+    minimizer: [
+      new UglifyJsPlugin({ sourceMap: true }),
+      new OptimizeCSSAssetsPlugin()
+    ],
     splitChunks: {
       cacheGroups: {
         vendor: {
