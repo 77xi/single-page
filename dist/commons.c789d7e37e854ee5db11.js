@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],[function(n,o,c){"use strict";o.a=function(n){return console.log(n)}},,function(n,o,c){}]]);
-//# sourceMappingURL=commons.c789d7e37e854ee5db11.js.map

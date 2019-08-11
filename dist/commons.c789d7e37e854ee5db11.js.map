@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/js/log.js"],"names":["log","arg","console"],"mappings":"sFAEeA,IAFH,SAACC,GAAD,OAASC,QAAQF,IAAIC,K","file":"commons.c789d7e37e854ee5db11.js","sourcesContent":["const log = (arg) => console.log(arg)\n\nexport default log"],"sourceRoot":""}
