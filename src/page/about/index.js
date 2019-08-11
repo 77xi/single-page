@@ -1,7 +1,7 @@
-import $ from 'jquery'
-import log from '~/common/js/log'
+import $ from "jquery"
+import log from "~/common/js/log"
 
-import '~/common/css/base.css'
-import './index.css'
+import "~/common/css/base.css"
+import "./index.css"
 
-log('about')
+log("about")

@@ -1,7 +1,7 @@
-import 'core-js/stable/array/entries'
+import "core-js/stable/array/entries"
 
-const log = (arg) => console.log(arg)
+const log = arg => console.log(arg)
 
-const filerApiTest = () => [1,2,3,4].entries()
+const filerApiTest = () => [1, 2, 3, 4].entries()
 
 export default log
