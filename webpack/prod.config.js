@@ -53,7 +53,9 @@ const config = {
   ],
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({ sourceMap: true }),
+      new UglifyJsPlugin({
+        sourceMap: true
+      }),
       new OptimizeCSSAssetsPlugin()
     ],
     splitChunks: {

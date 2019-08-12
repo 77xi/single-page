@@ -7,7 +7,7 @@
     "start": "npx webpack-dev-server --config ./webpack/dev.config.js --open",
     "build": "npx webpack --config ./webpack/prod.config.js",
     "build:analyze": "npx webpack --config ./webpack/prod.config.analyze.js",
-    "lint": "npx pretty-quick --staged"
+    "lint": "npx pretty-quick --staged --pattern 'src/*.*(js|css|html})'"
   },
   "repository": {
     "type": "git",
