@@ -1,26 +1,24 @@
-const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin
+const path = require("path")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
+const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin")
 
-const getEntrys = require('./getEntrys')
-const baseConfig = require('./base.config')
-const { vendorDependencies } = require('./constant')
+const getEntrys = require("./getEntrys")
+const baseConfig = require("./base.config")
+const { vendorDependencies } = require("./constant")
 const pageEntrys = getEntrys()
 
 const config = {
-  mode: 'production',
+  mode: "production",
   ...baseConfig,
   entry: {
     ...baseConfig.entry,
     vendor: vendorDependencies
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   module: {
     rules: [
       {
@@ -29,30 +27,29 @@ const config = {
           {
             loader: MiniCssExtractPlugin.loader
           },
-          'css-loader'
+          "css-loader"
         ]
       },
       {
         test: /\.(js)$/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: "babel-loader"
           }
         ]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        use: ["file-loader"]
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
-      chunkFilename: '[name].[hash].css'
-    }),
-    new BundleAnalyzerPlugin()
+      filename: "[name].[hash].css",
+      chunkFilename: "[name].[hash].css"
+    })
   ],
   optimization: {
     minimizer: [
@@ -62,13 +59,13 @@ const config = {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          chunks: 'all',
-          test: 'vendor',
-          name: 'vendor'
+          chunks: "all",
+          test: "vendor",
+          name: "vendor"
         },
         commons: {
-          chunks: 'all',
-          name: 'commons',
+          chunks: "all",
+          name: "commons",
           priority: -1,
           minChunks: Object.keys(pageEntrys).length,
           // ????
@@ -85,7 +82,7 @@ Object.keys(pageEntrys).forEach(pageName => {
   config.plugins.push(
     new HtmlWebpackPlugin({
       filename: `${pageName}.html`,
-      template: path.join(pageEntrys[pageName], 'index.html'),
+      template: path.join(pageEntrys[pageName], "index.html"),
       inject: true,
       chunks: [`${pageName}`, ...cacheGroupsKeys]
     })
@@ -94,7 +91,7 @@ Object.keys(pageEntrys).forEach(pageName => {
 
 config.plugins.push(
   new ScriptExtHtmlWebpackPlugin({
-    defaultAttribute: 'async'
+    defaultAttribute: "async"
   })
 )
 
