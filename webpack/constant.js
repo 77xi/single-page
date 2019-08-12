@@ -1,1 +1,1 @@
-exports.vendorDependencies = ['jquery']
+exports.vendorDependencies = ["jquery"]
