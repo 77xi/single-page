@@ -7,6 +7,7 @@
     "start": "npx webpack-dev-server --config ./webpack/dev.config.js --open",
     "build": "npx webpack --config ./webpack/prod.config.js",
     "build:analyze": "npx webpack --config ./webpack/prod.config.analyze.js",
+    "//": "lint command below is very trick, but \"prettier-eslint-cli\" does not work: https://github.com/prettier/prettier-eslint-cli",
     "lint": "npx eslint \"src/**/*.js\" --fix && npx prettier --write \"src/**/*.{css,html}\""
   },
   "repository": {
