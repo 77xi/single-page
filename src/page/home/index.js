@@ -1,5 +1,3 @@
-// eslint-disable-next-line
-import $ from "jquery"
 import log from "~/common/js/log"
 
 import "~/common/css/base.css"
